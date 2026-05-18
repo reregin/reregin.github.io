@@ -18,7 +18,9 @@ export default function Hero() {
 
       <div className="section-container text-center relative z-10 pt-20">
         {/* Handwritten accent */}
-        <p className="accent-label mb-4 animate-fade-in-up">portfolio</p>
+        <p className="accent-label mb-4 animate-fade-in-up">
+          welcome to my corner
+        </p>
 
         {/* Main name */}
         <h1 className="font-heading font-bold text-[var(--color-black)] uppercase tracking-[0.06em] leading-[1.1] mb-6 animate-fade-in-up delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
@@ -39,8 +41,12 @@ export default function Hero() {
         <div className="mx-auto w-16 h-[2px] bg-[var(--color-accent)] mb-6 animate-fade-in-up delay-200" />
 
         {/* Subtitle */}
-        <p className="font-body text-base md:text-lg text-[var(--color-black-soft)] mb-10 max-w-xl mx-auto animate-fade-in-up delay-300">
+        <p className="font-body text-base md:text-lg text-[var(--color-black-soft)] mb-4 max-w-xl mx-auto animate-fade-in-up delay-300">
           {personalInfo.title}
+        </p>
+        <p className="font-body text-sm md:text-base text-[var(--color-gray)] mb-10 max-w-2xl mx-auto animate-fade-in-up delay-300">
+          turning raw data into intelligent systems and shipping on-chain
+          products that actually matter.
         </p>
 
         {/* CTA buttons */}

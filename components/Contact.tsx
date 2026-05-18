@@ -77,8 +77,8 @@ export default function Contact() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-[var(--color-gray)]/20 text-center">
-          <p className="font-heading text-[10px] tracking-[0.2em] uppercase text-[var(--color-gray)]">
-            © 2025 Regina Maria Samantha George
+          <p className="font-body text-sm text-[var(--color-gray)]">
+            built with Next.js, curiosity, and determination
           </p>
         </div>
       </div>

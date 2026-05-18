@@ -30,6 +30,7 @@ export interface SkillCategory {
 
 export interface Certification {
   name: string;
+  credentialUrl?: string;
 }
 
 export interface Award {
@@ -50,7 +51,7 @@ export interface Education {
 
 export const personalInfo = {
   name: "Regina Maria Samantha George",
-  title: "ML engineer",
+  title: "ML engineer & web3 builder",
   subtitle: "Informatics Engineering Student",
   email: "reginageo22@gmail.com",
   linkedin: "www.linkedin.com/in/regina-george",
@@ -59,6 +60,29 @@ export const personalInfo = {
   instagram: "regingeo",
   phone: "+62 823-4797-8059",
 };
+
+export const profileBadges = [
+  "PIMNAS Bronze Medalist",
+  "GEMASTIK Finalist x2",
+  "CompTIA Data+",
+  "Solana Builder",
+];
+
+export const signalStrip = [
+  "now building: NEUROKIT",
+  "ml & data",
+  "web3 curious",
+  "on-chain products that matter",
+  "attention + memory",
+  "editing videos after commits",
+];
+
+export const builderNotes = [
+  'My favorite English word is "determination." I feel like it is the root of every success, and of every wonderful story people tell.',
+  'I believe everyone has a strength within them that is still waiting to awaken, and sometimes it starts when we say "yes" to something we do not yet realize will change our life.',
+  "I want to contribute something genuinely meaningful to the world. I admire the people shaping AI and Web3 because they may not always feel it, but they are helping steer the world's advancement, and I think that is incredibly cool.",
+  "When I'm not training models or shipping on-chain, I'm probably editing videos or rewatching Hunter x Hunter.",
+];
 
 export const aboutText = [
   "I'm a final-year Informatics Engineering student with a strong passion for the IT industry, especially in Data Mining, Machine Learning, and Databases.",
@@ -152,42 +176,51 @@ export const projects: Project[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Data & Analytics",
-    skills: [
-      "Data Science",
-      "Data Visualization",
-      "Data Mining",
-      "Data Analytics",
-      "Business Intelligence",
-    ],
+    category: "ML & Data",
+    skills: ["Python", "Pandas", "Scikit-Learn", "MySQL", "MLflow"],
   },
   {
-    category: "Machine Learning",
-    skills: [
-      "Machine Learning",
-      "Generative AI",
-      "Llama 3.1 Fine-tuning",
-      "Cosine Similarity",
-      "KNN-VC",
-    ],
+    category: "Web3 & Web2",
+    skills: ["Next.js", "TypeScript", "Tailwind CSS", "Solana", "NestJS"],
   },
   {
-    category: "Tools & Platforms",
-    skills: ["Power BI", "Power Query", "Microsoft Office Suite", "Office 365"],
+    category: "Builder Kit",
+    skills: ["Generative AI", "Llama 3.1", "Cosine Similarity", "KNN-VC"],
   },
   {
-    category: "Programming & Databases",
-    skills: ["Python", "SQL", "C++", "Databases", "Flutter Basics"],
+    category: "Creative Side",
+    skills: ["Video Editing", "Filmmaking", "Research", "Storytelling"],
   },
 ];
 
 export const certifications: Certification[] = [
-  { name: "CompTIA Data+" },
-  { name: "Project Management Fundamentals" },
-  { name: "Hadoop 101 Course" },
-  { name: "SQL Basic Assessment" },
-  { name: "C++ Beginner Course" },
-  { name: "SQL Beginner Course" },
+  {
+    name: "CompTIA Data+",
+    credentialUrl:
+      "https://www.linkedin.com/in/regina-george/overlay/1734742617080/single-media-viewer/?profileId=ACoAADa_6JwBzikWJVEiij2Yky-0imzerh6HSew",
+  },
+  {
+    name: "Project Management Fundamentals",
+    credentialUrl:
+      "https://www.credly.com/badges/3eb371ce-c03e-47bf-b107-2a0911ecc5a3/public_url",
+  },
+  {
+    name: "Hadoop 101 Course",
+    credentialUrl:
+      "https://courses.cognitiveclass.ai/certificates/3c4fb0a7609a46a3a16d471fdbd5a18f",
+  },
+  {
+    name: "SQL Basic Assessment",
+    credentialUrl: "https://www.hackerrank.com/certificates/a005675157a2",
+  },
+  {
+    name: "C++ Beginner Course",
+    credentialUrl: "https://www.sololearn.com/certificates/CT-IQY1GNKN",
+  },
+  {
+    name: "SQL Beginner Course",
+    credentialUrl: "https://www.sololearn.com/certificates/CT-2RIOALFA",
+  },
 ];
 
 export const awards: Award[] = [

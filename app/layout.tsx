@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Regina George — ML Engineer & Data Enthusiast",
+  title: "Regina George",
   description:
     "Portfolio of Regina Maria Samantha George — Informatics Engineering student, Machine Learning Engineer, and Data Mining enthusiast based in North Sulawesi, Indonesia.",
   keywords: [

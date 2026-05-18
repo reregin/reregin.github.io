@@ -50,6 +50,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  overflow-x: clip;
 }
 
 body {
@@ -58,6 +59,7 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -190,4 +192,36 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gray);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.signal-marquee {
+  animation: marquee 24s linear infinite;
+}
+
+.signal-marquee:hover {
+  animation-play-state: paused;
+}
+
+.project-grid {
+  background-image: linear-gradient(
+      rgba(26, 26, 26, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(26, 26, 26, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-marquee {
+    animation: none;
+  }
 }

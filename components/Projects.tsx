@@ -1,4 +1,24 @@
+import Image from "next/image";
 import { projects } from "@/lib/data";
+
+const neurokitImages = [
+  {
+    src: "https://res.cloudinary.com/dvofzfezh/image/upload/f_auto,q_auto/v1779110105/IMG_1396_b2tmuw.heic",
+    alt: "NEUROKIT presentation moment",
+  },
+  {
+    src: "https://res.cloudinary.com/dvofzfezh/image/upload/f_auto,q_auto/v1779110108/IMG_1495_mrhxhw.heic",
+    alt: "NEUROKIT device shot",
+  },
+  {
+    src: "https://res.cloudinary.com/dvofzfezh/image/upload/v1779111321/IMG_1114_hggshs.jpg",
+    alt: "NEUROKIT event moment",
+  },
+  {
+    src: "https://res.cloudinary.com/dvofzfezh/image/upload/v1779111043/Screenshot_2026-05-18_213010_vs4xqm.png",
+    alt: "NEUROKIT mobile screenshot",
+  },
+];
 
 export default function Projects() {
   const project = projects[0];
@@ -17,18 +37,37 @@ export default function Projects() {
 
         <article className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 border border-[var(--color-border)] p-6 md:p-10 bg-[var(--color-cream-light)]">
           <div className="lg:col-span-4">
-            <div className="aspect-[4/3] w-full bg-[var(--color-cream-dark)] border border-[var(--color-border-light)] relative overflow-hidden">
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                <span className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-black)] opacity-10 tracking-[0.1em] uppercase">
-                  {project.title}
-                </span>
-                <span className="font-heading text-xs md:text-sm font-bold text-[var(--color-black)] opacity-20 tracking-[0.15em] mt-3 uppercase">
-                  PKM 2025
-                </span>
+            <div className="aspect-square w-full bg-[var(--color-cream-dark)] border border-[var(--color-border-light)] relative overflow-hidden p-4">
+              <div className="absolute inset-0 opacity-30 project-grid" />
+
+              <div className="relative h-full flex flex-col gap-3">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="bg-[var(--color-accent)] text-white font-heading text-[10px] tracking-[0.15em] uppercase px-3 py-1.5 font-bold">
+                    Bronze Medal
+                  </div>
+                  <span className="font-heading text-[9px] tracking-[0.14em] uppercase text-[var(--color-gray)]">
+                    neurokit moments
+                  </span>
+                </div>
+
+                <div className="grid flex-1 grid-cols-2 grid-rows-2 gap-3 min-h-0">
+                  {neurokitImages.map((image, i) => (
+                    <div
+                      key={image.src}
+                      className="border border-[var(--color-border-light)] bg-[var(--color-cream)] relative overflow-hidden min-h-0"
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes="(min-width: 1024px) 220px, 45vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="absolute top-4 left-4 bg-[var(--color-accent)] text-white font-heading text-[10px] tracking-[0.15em] uppercase px-3 py-1.5 font-bold">
-                Bronze Medal
-              </div>
+
               <div className="absolute bottom-0 right-0 w-20 h-20 border-t border-l border-[var(--color-accent)] opacity-40" />
             </div>
           </div>
@@ -60,7 +99,7 @@ export default function Projects() {
                   href={project.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-heading text-[10px] tracking-[0.12em] uppercase px-4 py-2 border border-[var(--color-border)] text-[var(--color-black-soft)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
+                  className="font-heading text-[10px] tracking-[0.12em] uppercase px-4 py-2 bg-[var(--color-black)] text-[var(--color-cream)] hover:bg-[var(--color-accent)] transition-colors"
                 >
                   @neurokit.pkmkc
                 </a>

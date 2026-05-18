@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { aboutText } from "@/lib/data";
+import { aboutText, profileBadges } from "@/lib/data";
 
 export default function About() {
   return (
@@ -49,32 +49,22 @@ export default function About() {
               </p>
             ))}
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 mt-8 border-t border-[var(--color-border-light)]">
-              <div>
-                <p className="font-heading text-2xl md:text-3xl font-bold text-[var(--color-black)]">
-                  3+
-                </p>
-                <p className="font-body text-xs text-[var(--color-gray)] mt-1 uppercase tracking-wider">
-                  Years in ML
-                </p>
-              </div>
-              <div>
-                <p className="font-heading text-2xl md:text-3xl font-bold text-[var(--color-black)]">
-                  5+
-                </p>
-                <p className="font-body text-xs text-[var(--color-gray)] mt-1 uppercase tracking-wider">
-                  Projects
-                </p>
-              </div>
-              <div>
-                <p className="font-heading text-2xl md:text-3xl font-bold text-[var(--color-accent)]">
-                  3
-                </p>
-                <p className="font-body text-xs text-[var(--color-gray)] mt-1 uppercase tracking-wider">
-                  National Awards
-                </p>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[var(--color-border-light)] border border-[var(--color-border-light)]">
+              {profileBadges.map((badge, i) => (
+                <div
+                  key={badge}
+                  className="bg-[var(--color-cream-light)] p-4 flex items-center gap-3"
+                >
+                  <span className="font-heading text-[10px] tracking-[0.16em] uppercase text-[var(--color-accent)]">
+                    0{i + 1}
+                  </span>
+                  <span className="font-heading text-[10px] md:text-xs tracking-[0.12em] uppercase text-[var(--color-black)]">
+                    {badge}
+                  </span>
+                </div>
+              ))}
             </div>
+
           </div>
         </div>
       </div>

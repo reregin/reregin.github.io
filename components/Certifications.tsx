@@ -32,10 +32,20 @@ export default function Certifications() {
                   <polyline points="22 4 12 14.01 9 11.01" />
                 </svg>
               </div>
-              <div>
+              <div className="flex-1 min-w-0">
                 <p className="font-heading text-xs font-bold text-[var(--color-black)] leading-snug">
                   {cert.name}
                 </p>
+                {cert.credentialUrl && (
+                  <a
+                    href={cert.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-3 font-heading text-[10px] tracking-[0.12em] uppercase text-[var(--color-accent)] hover:text-[var(--color-accent-dark)] transition-colors"
+                  >
+                    show credential
+                  </a>
+                )}
               </div>
             </div>
           ))}
