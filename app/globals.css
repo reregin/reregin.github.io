@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+/* ─── Custom Font: Amsterdam One alternative (Dancing Script for handwritten accent) ─── */
+
+/* ─── Design Tokens ─── */
+:root {
+  --color-cream: #f5f0e8;
+  --color-cream-light: #faf7f2;
+  --color-cream-dark: #ebe5d9;
+  --color-black: #1a1a1a;
+  --color-black-soft: #2d2d2d;
+  --color-accent: #e05a5a;
+  --color-accent-dark: #c94444;
+  --color-accent-light: #f07070;
+  --color-gray: #8a8a8a;
+  --color-gray-light: #b5b5b5;
+  --color-border: #1a1a1a;
+  --color-border-light: rgba(26, 26, 26, 0.15);
+
+  --font-heading: "Space Mono", "Courier New", monospace;
+  --font-accent: "Dancing Script", "Segoe Script", cursive;
+  --font-body: "Manrope", "Avenir Next", "Helvetica Neue", Aptos, "Segoe UI",
+    system-ui, sans-serif;
+}
+
+/* ─── Tailwind v4 Theme Inline ─── */
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-cream-light: var(--color-cream-light);
+  --color-cream-dark: var(--color-cream-dark);
+  --color-black: var(--color-black);
+  --color-black-soft: var(--color-black-soft);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-light: var(--color-accent-light);
+  --color-gray: var(--color-gray);
+  --color-gray-light: var(--color-gray-light);
+  --color-border: var(--color-border);
+  --color-border-light: var(--color-border-light);
+  --font-heading: var(--font-heading);
+  --font-accent: var(--font-accent);
+  --font-body: var(--font-body);
+}
+
+/* ─── Base Styles ─── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* ─── Section Styles ─── */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 4rem 1.25rem;
+  }
+}
+
+/* ─── Typography Helpers ─── */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ─── Handwritten Accent Label ─── */
+.accent-label {
+  font-family: var(--font-accent);
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+  .accent-label {
+    font-size: 2rem;
+  }
+}
+
+/* ─── Section Title ─── */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.75rem;
+  }
+}
+
+/* ─── Decorative Elements ─── */
+.decorative-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  display: inline-block;
+}
+
+.decorative-line {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-black);
+}
+
+/* ─── Card hover animation ─── */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(26, 26, 26, 0.08);
+}
+
+/* ─── Subtle fade-in animation ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+/* ─── Stagger delays ─── */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* ─── Scrollbar Styling ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray);
+}
