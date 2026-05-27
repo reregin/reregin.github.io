@@ -13,9 +13,13 @@ export interface Project {
   period?: string;
   githubUrl?: string;
   instagramUrl?: string;
+  xUrl?: string;
+  vercelUrl?: string;
+  colosseumUrl?: string;
   description: string;
   tags: string[];
   featured?: boolean;
+  placeholderLayout?: "square" | "landscape-double";
   featuredDetails?: {
     role: string;
     achievement: string;
@@ -39,6 +43,7 @@ export interface Award {
   date: string;
   association: string;
   bullets: string[];
+  imageUrl?: string;
 }
 
 export interface Education {
@@ -172,8 +177,38 @@ export const projects: Project[] = [
     instagramUrl: "https://www.instagram.com/neurokit.pkmkc/",
     description:
       "NEUROKIT is a multimodal neurotherapeutic-based dynamic toolkit integrated with gamification and generative AI to improve students' attention span and memory retention. This toolkit originated as a collaboration between Informatics Engineering and the Medical field, developed for participation in the 2025 Program Kreativitas Mahasiswa (PKM). It was later selected to be presented at the 2025 Pekan Ilmiah Mahasiswa Nasional (PIMNAS), hosted by Universitas Hasanuddin in Makassar, where it earned a Bronze Medal under the Karsa Cipta scheme.",
-    tags: ["Generative AI", "Gamification", "Neurotherapeutic", "PKM", "PIMNAS"],
+    tags: ["Generative AI", "Gamification", "Neurotherapeutic", "PKM", "PIMNAS", "Flutter"],
     featured: true,
+  },
+  {
+    title: "FISH FRESHNESS CLASSIFICATION",
+    subtitle: "MULTIMODAL FUSION TRANSFORMER",
+    period: "Jul 2025 - Aug 2025",
+    description:
+      "This research classifies fish freshness using multimodal sensor and visual image data as indicators of food quality. By combining contrastive learning and a parallel fusion transformer, the model integrates MQ-135 and TGS 2602 gas sensor patterns with tuna image data from the DaFiF dataset. Achieving 85.4% accuracy and 84.3% macro F1-score, this research brought my team to the GEMASTIK 2025 finals and earned the Most Inspiring Team title.",
+    tags: ["AI/ML", "Computer Vision", "Multimodal", "Transformer", "GEMASTIK", "Data Mining"],
+  },
+  {
+    title: "ANTHROPOMETRIC MINING",
+    subtitle: "ERGONOMIC ASSOCIATION RULE MINING",
+    period: "2024",
+    description:
+      "This research applies association rule mining, specifically Apriori and Eclat algorithms, to an Indonesian elderly anthropometric dataset of 38 physical measurements. By analyzing 182 records, the project extracted seven crucial rules linking body dimensions to public facility design requirements. These analytical guidelines promote inclusive and ergonomic infrastructure for vulnerable populations, aligning with Sustainable Development Goals. This analytical approach to improving the quality of life for the elderly successfully brought our team to the GEMASTIK 2024 national finals.",
+    tags: ["AI/ML", "Data Mining", "Apriori", "Eclat", "Ergonomics", "GEMASTIK"],
+  },
+  {
+    title: "CORA",
+    subtitle: "PvP On-Chain Aptitude Arena",
+    period: "Apr 2026 - Present",
+    githubUrl: "https://github.com/ahmdtrdi/Cora",
+    xUrl: "https://x.com/playcora",
+    vercelUrl: "https://cora-gamefi.vercel.app/",
+    colosseumUrl: "https://arena.colosseum.org/projects/explore/cora",
+    description:
+      "CORA is a Solana-based web3 aptitude battle platform where players connect wallets, stake wagers in escrow, and compete in real-time best-of-three question matches. It supports public queue matchmaking and private Blink challenges, both settling outcomes on-chain with refund and reclaim paths. The stack combines a Next.js frontend, Bun/Hono backend, WebSockets, shared game logic, and Solana programs, with optional MagicBlock delegated state to make live battle progression more verifiable and transparent. The project originally started at the Colosseum Solana Frontier Hackathon.",
+    tags: ["Solana", "Next.js", "WebSockets", "Bun", "Hono", "On-Chain Escrow"],
+    featured: true,
+    placeholderLayout: "landscape-double",
   },
 ];
 
@@ -184,11 +219,11 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     category: "Web3 & Web2",
-    skills: ["Next.js", "TypeScript", "Tailwind CSS", "Solana", "NestJS"],
+    skills: ["Next.js", "TypeScript", "Tailwind CSS", "Solana", "NestJS", "Flutter"],
   },
   {
-    category: "Builder Kit",
-    skills: ["Generative AI", "Llama 3.1", "Cosine Similarity", "KNN-VC"],
+    category: "Language",
+    skills: ["Indonesian (Native)", "English (Fluent)"],
   },
   {
     category: "Creative Side",
@@ -240,6 +275,7 @@ export const awards: Award[] = [
       "Qualified to present at PIMNAS in front of three judges from top Indonesian universities.",
       "Awarded Bronze Medalist.",
     ],
+    imageUrl: "https://res.cloudinary.com/dvofzfezh/image/upload/f_auto,q_auto/v1779110108/IMG_2770_os0fb9.jpg",
   },
   {
     title: "The Most Inspiring Team — Data Mining at GEMASTIK",
@@ -251,6 +287,7 @@ export const awards: Award[] = [
       "Competed against top teams and solved complex classification problems on an image dataset within a strict 5-hour timeframe.",
       "Awarded The Most Inspiring Team, selected from 220 finalists across 11 divisions, with 20 teams per division.",
     ],
+    imageUrl: "https://res.cloudinary.com/dvofzfezh/image/upload/f_auto,q_auto/v1779856714/IMG_4048.JPG_uyc7uh.jpg",
   },
   {
     title: "Finalist in Data Mining at GEMASTIK",
@@ -262,6 +299,7 @@ export const awards: Award[] = [
       "Competed against top teams and solved complex classification problems on a tabular dataset within a strict 5-hour timeframe.",
       "Recognized as a Finalist in Data Mining at GEMASTIK.",
     ],
+    imageUrl: "https://res.cloudinary.com/dvofzfezh/image/upload/f_auto,q_auto/v1779856408/IMG_4592_jhtt9c.jpg",
   },
 ];
 

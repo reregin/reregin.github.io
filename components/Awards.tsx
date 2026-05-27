@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { awards } from "@/lib/data";
 
 export default function Awards() {
@@ -22,45 +23,64 @@ export default function Awards() {
             <div className="absolute bottom-3 right-3 w-2.5 h-2.5 border-b border-r border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] group-hover:w-3.5 group-hover:h-3.5 transition-all duration-300 select-none pointer-events-none z-20" />
             <div className="absolute top-3 left-3 w-2.5 h-2.5 border-t border-l border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] group-hover:w-3.5 group-hover:h-3.5 transition-all duration-300 select-none pointer-events-none z-20" />
             <div className="absolute bottom-3 left-3 w-2.5 h-2.5 border-b border-l border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] group-hover:w-3.5 group-hover:h-3.5 transition-all duration-300 select-none pointer-events-none z-20" />
-            {/* Split Left: Cloudinary picture placeholder */}
-            <div className="relative w-full sm:w-[42%] bg-[var(--color-cream-dark)] border-b sm:border-b-0 sm:border-r border-[var(--color-border-light)] overflow-hidden flex items-center justify-center shrink-0 min-h-[200px] sm:min-h-full pointer-events-none">
+            {/* Split Left: Cloudinary picture */}
+            <div className="relative w-full sm:w-[42%] bg-[var(--color-cream-dark)] border-b sm:border-b-0 sm:border-r border-[var(--color-border-light)] overflow-hidden flex items-center justify-center shrink-0 min-h-[200px] sm:min-h-full group/img">
+              {awards[0].imageUrl && (
+                <a
+                  href={awards[0].imageUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 block w-full h-full cursor-zoom-in z-10"
+                  title="View full image"
+                >
+                  <Image
+                    src={awards[0].imageUrl}
+                    alt={awards[0].title}
+                    fill
+                    sizes="(min-width: 640px) 42vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105 group-hover/img:scale-108"
+                  />
+                </a>
+              )}
               {/* Grid Overlay */}
-              <div className="absolute inset-0 grid-overlay opacity-25" />
+              <div className="absolute inset-0 grid-overlay opacity-25 z-20 pointer-events-none" />
 
               {/* Noise texture */}
-              <div className="absolute inset-0 noise-bg opacity-30" />
+              <div className="absolute inset-0 noise-bg opacity-35 z-20 pointer-events-none" />
 
               {/* Pulsing horizontal line */}
-              <div className="absolute inset-x-0 h-px bg-[var(--color-accent)] opacity-20 animate-pulse top-1/2" />
+              <div className="absolute inset-x-0 h-px bg-[var(--color-accent)] opacity-20 animate-pulse top-1/2 z-20 pointer-events-none" />
 
               {/* System Badge */}
-              <div className="absolute top-3 left-4 flex items-center gap-1.5 font-heading text-[8px] uppercase tracking-[0.16em] text-[var(--color-gray)]">
+              <div className="absolute top-3 left-4 flex items-center gap-1.5 font-heading text-[8px] uppercase tracking-[0.16em] text-[var(--color-gray)] z-20 pointer-events-none bg-[var(--color-cream)]/75 backdrop-blur-[2px] px-1.5 py-0.5 border border-[var(--color-border-light)] rounded-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-blink" />
                 SYS_RECON_LARG_ASSET
               </div>
 
               {/* Secure code */}
-              <div className="absolute bottom-3 left-4 font-heading text-[7px] tracking-[0.12em] text-[var(--color-gray)] opacity-60">
+              <div className="absolute bottom-3 left-4 font-heading text-[7px] tracking-[0.12em] text-[var(--color-gray)] opacity-60 z-20 pointer-events-none bg-[var(--color-cream)]/75 backdrop-blur-[2px] px-1.5 py-0.5 border border-[var(--color-border-light)] rounded-sm">
                 PIMNAS_KEY: 0x8a92...e2b1
               </div>
 
               {/* Central vector illustration */}
-              <div className="text-center z-10 flex flex-col items-center gap-2">
-                <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                  className="text-[var(--color-accent)] opacity-75"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" fillOpacity="0.15" />
-                </svg>
-                <span className="font-heading text-[9px] tracking-[0.2em] text-[var(--color-black-soft)] uppercase block font-bold">
-                  [ cloudinary_pimnas_lg_01.jpg ]
-                </span>
-              </div>
+              {!awards[0].imageUrl && (
+                <div className="text-center z-10 flex flex-col items-center gap-2">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    className="text-[var(--color-accent)] opacity-75"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" fillOpacity="0.15" />
+                  </svg>
+                  <span className="font-heading text-[9px] tracking-[0.2em] text-[var(--color-black-soft)] uppercase block font-bold">
+                    [ cloudinary_pimnas_lg_01.jpg ]
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Split Right: Details and Content */}
@@ -115,33 +135,52 @@ export default function Awards() {
             <div className="absolute bottom-3 right-3 w-2.5 h-2.5 border-b border-r border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] group-hover:w-3.5 group-hover:h-3.5 transition-all duration-300 select-none pointer-events-none z-20" />
             <div className="absolute top-3 left-3 w-2.5 h-2.5 border-t border-l border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] group-hover:w-3.5 group-hover:h-3.5 transition-all duration-300 select-none pointer-events-none z-20" />
             <div className="absolute bottom-3 left-3 w-2.5 h-2.5 border-b border-l border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] group-hover:w-3.5 group-hover:h-3.5 transition-all duration-300 select-none pointer-events-none z-20" />
-            {/* Top: Cloudinary picture placeholder */}
-            <div className="relative w-full h-36 bg-[var(--color-cream-dark)] border-b border-[var(--color-border-light)] overflow-hidden flex items-center justify-center pointer-events-none">
-              <div className="absolute inset-0 grid-overlay opacity-25" />
-              <div className="absolute inset-0 noise-bg opacity-30" />
-              <div className="absolute top-3 left-4 flex items-center gap-1.5 font-heading text-[8px] uppercase tracking-[0.16em] text-[var(--color-gray)]">
+            {/* Top: Cloudinary picture */}
+            <div className="relative w-full h-36 bg-[var(--color-cream-dark)] border-b border-[var(--color-border-light)] overflow-hidden flex items-center justify-center group/img">
+              {awards[1].imageUrl && (
+                <a
+                  href={awards[1].imageUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 block w-full h-full cursor-zoom-in z-10"
+                  title="View full image"
+                >
+                  <Image
+                    src={awards[1].imageUrl}
+                    alt={awards[1].title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105 group-hover/img:scale-108"
+                  />
+                </a>
+              )}
+              <div className="absolute inset-0 grid-overlay opacity-25 z-20 pointer-events-none" />
+              <div className="absolute inset-0 noise-bg opacity-35 z-20 pointer-events-none" />
+              <div className="absolute top-3 left-4 flex items-center gap-1.5 font-heading text-[8px] uppercase tracking-[0.16em] text-[var(--color-gray)] z-20 pointer-events-none bg-[var(--color-cream)]/75 backdrop-blur-[2px] px-1.5 py-0.5 border border-[var(--color-border-light)] rounded-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-blink" />
                 SYS_RECON_ASSET
               </div>
 
-              <div className="text-center z-10 flex flex-col items-center gap-1.5">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                  className="text-[var(--color-accent)] opacity-65"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" />
-                  <path d="M21 15l-5-5L5 21" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span className="font-heading text-[8px] tracking-[0.2em] text-[var(--color-black-soft)] uppercase block font-bold">
-                  [ cloudinary_photo_log_02.jpg ]
-                </span>
-              </div>
+              {!awards[1].imageUrl && (
+                <div className="text-center z-10 flex flex-col items-center gap-1.5">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    className="text-[var(--color-accent)] opacity-65"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" />
+                    <path d="M21 15l-5-5L5 21" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="font-heading text-[8px] tracking-[0.2em] text-[var(--color-black-soft)] uppercase block font-bold">
+                    [ cloudinary_photo_log_02.jpg ]
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Content & Details */}
@@ -192,33 +231,52 @@ export default function Awards() {
             <div className="absolute bottom-3 right-3 w-2.5 h-2.5 border-b border-r border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] group-hover:w-3.5 group-hover:h-3.5 transition-all duration-300 select-none pointer-events-none z-20" />
             <div className="absolute top-3 left-3 w-2.5 h-2.5 border-t border-l border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] group-hover:w-3.5 group-hover:h-3.5 transition-all duration-300 select-none pointer-events-none z-20" />
             <div className="absolute bottom-3 left-3 w-2.5 h-2.5 border-b border-l border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] group-hover:w-3.5 group-hover:h-3.5 transition-all duration-300 select-none pointer-events-none z-20" />
-            {/* Left: Cloudinary picture placeholder (landscape split) */}
-            <div className="relative w-full sm:w-[28%] bg-[var(--color-cream-dark)] border-b sm:border-b-0 sm:border-r border-[var(--color-border-light)] overflow-hidden flex items-center justify-center shrink-0 min-h-[140px] sm:min-h-full pointer-events-none">
-              <div className="absolute inset-0 grid-overlay opacity-25" />
-              <div className="absolute inset-0 noise-bg opacity-30" />
-              <div className="absolute top-3 left-4 flex items-center gap-1.5 font-heading text-[8px] uppercase tracking-[0.16em] text-[var(--color-gray)]">
+            {/* Left: Cloudinary picture (landscape split) */}
+            <div className="relative w-full sm:w-[28%] bg-[var(--color-cream-dark)] border-b sm:border-b-0 sm:border-r border-[var(--color-border-light)] overflow-hidden flex items-center justify-center shrink-0 min-h-[140px] sm:min-h-full group/img">
+              {awards[2].imageUrl && (
+                <a
+                  href={awards[2].imageUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 block w-full h-full cursor-zoom-in z-10"
+                  title="View full image"
+                >
+                  <Image
+                    src={awards[2].imageUrl}
+                    alt={awards[2].title}
+                    fill
+                    sizes="(min-width: 640px) 28vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105 group-hover/img:scale-108"
+                  />
+                </a>
+              )}
+              <div className="absolute inset-0 grid-overlay opacity-25 z-20 pointer-events-none" />
+              <div className="absolute inset-0 noise-bg opacity-35 z-20 pointer-events-none" />
+              <div className="absolute top-3 left-4 flex items-center gap-1.5 font-heading text-[8px] uppercase tracking-[0.16em] text-[var(--color-gray)] z-20 pointer-events-none bg-[var(--color-cream)]/75 backdrop-blur-[2px] px-1.5 py-0.5 border border-[var(--color-border-light)] rounded-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-blink" />
                 SYS_RECON_ASSET
               </div>
 
-              <div className="text-center z-10 flex flex-col items-center gap-1.5">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                  className="text-[var(--color-accent)] opacity-65"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" />
-                  <path d="M21 15l-5-5L5 21" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span className="font-heading text-[8px] tracking-[0.2em] text-[var(--color-black-soft)] uppercase block font-bold">
-                  [ cloudinary_photo_log_03.jpg ]
-                </span>
-              </div>
+              {!awards[2].imageUrl && (
+                <div className="text-center z-10 flex flex-col items-center gap-1.5">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    className="text-[var(--color-accent)] opacity-65"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" />
+                    <path d="M21 15l-5-5L5 21" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="font-heading text-[8px] tracking-[0.2em] text-[var(--color-black-soft)] uppercase block font-bold">
+                    [ cloudinary_photo_log_03.jpg ]
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Right: Content & Details */}
