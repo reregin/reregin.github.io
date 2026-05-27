@@ -3,10 +3,10 @@ import { aboutText, profileBadges } from "@/lib/data";
 
 export default function About() {
   return (
-    <section id="about" className="relative">
+    <section id="about" className="relative bg-[var(--color-cream-light)] dot-grid-bg">
       <div className="section-container">
         <div className="mb-12">
-          <p className="accent-label mb-2">about me</p>
+          <span className="meta-label mb-2 block">Background</span>
           <h2 className="section-title">Who I Am</h2>
         </div>
 
@@ -21,6 +21,8 @@ export default function About() {
                   sizes="(min-width: 1024px) 320px, 100vw"
                   className="object-cover"
                 />
+                {/* Noise overlay on portrait */}
+                <div className="absolute inset-0 noise-bg opacity-40" />
                 <div className="absolute top-0 right-0 w-16 h-16">
                   <div className="absolute top-0 right-0 w-full h-full bg-[var(--color-accent)] opacity-80" />
                   <div className="absolute top-2 right-2 text-white text-xs font-heading font-bold">
@@ -64,6 +66,7 @@ export default function About() {
                 </div>
               ))}
             </div>
+
 
           </div>
         </div>

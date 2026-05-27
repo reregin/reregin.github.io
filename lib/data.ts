@@ -69,12 +69,15 @@ export const profileBadges = [
 ];
 
 export const signalStrip = [
+  "MODEL OUTPUT",
   "now building: NEUROKIT",
-  "ml & data",
-  "web3 curious",
-  "on-chain products that matter",
-  "attention + memory",
-  "editing videos after commits",
+  "ON-CHAIN SYSTEMS",
+  "DATA PIPELINES",
+  "HUMAN-CENTERED AI",
+  "BLOCK HEIGHT: ███",
+  "EXPERIMENT LOG",
+  "CONFIDENCE SCORE: 0.94",
+  "ATTENTION + MEMORY",
 ];
 
 export const builderNotes = [

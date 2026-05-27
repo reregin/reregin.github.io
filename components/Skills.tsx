@@ -2,11 +2,11 @@ import { skillCategories } from "@/lib/data";
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative bg-[var(--color-cream-light)]">
+    <section id="skills" className="relative bg-[var(--color-cream-light)] dot-grid-bg">
       <div className="section-container">
         {/* Section header */}
         <div className="mb-14">
-          <p className="accent-label mb-2">skills</p>
+          <p className="meta-label mb-2">skills</p>
           <h2 className="section-title">What I Know</h2>
         </div>
 

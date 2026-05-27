@@ -16,11 +16,10 @@ export default function Navbar() {
   return (
     <nav
       id="main-nav"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-[var(--color-cream)]/95 backdrop-blur-sm shadow-[0_1px_0_var(--color-border-light)]"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
@@ -53,28 +52,24 @@ export default function Navbar() {
           aria-label="Toggle navigation menu"
         >
           <span
-            className={`block w-5 h-[2px] bg-[var(--color-black)] transition-all duration-300 ${
-              mobileOpen ? "rotate-45 translate-y-[7px]" : ""
-            }`}
+            className={`block w-5 h-[2px] bg-[var(--color-black)] transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""
+              }`}
           />
           <span
-            className={`block w-5 h-[2px] bg-[var(--color-black)] transition-all duration-300 ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
+            className={`block w-5 h-[2px] bg-[var(--color-black)] transition-all duration-300 ${mobileOpen ? "opacity-0" : ""
+              }`}
           />
           <span
-            className={`block w-5 h-[2px] bg-[var(--color-black)] transition-all duration-300 ${
-              mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""
-            }`}
+            className={`block w-5 h-[2px] bg-[var(--color-black)] transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""
+              }`}
           />
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 bg-[var(--color-cream)] ${
-          mobileOpen ? "max-h-96 border-b border-[var(--color-border-light)]" : "max-h-0"
-        }`}
+        className={`md:hidden overflow-hidden transition-all duration-300 bg-[var(--color-cream)] ${mobileOpen ? "max-h-96 border-b border-[var(--color-border-light)]" : "max-h-0"
+          }`}
       >
         <ul className="flex flex-col px-6 py-4 gap-4">
           {navItems.map((item) => (

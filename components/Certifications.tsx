@@ -2,12 +2,12 @@ import { certifications } from "@/lib/data";
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="relative">
-      <div className="section-container">
+    <section id="certifications" className="relative noise-bg">
+      <div className="section-container relative z-10">
         {/* Section header */}
         <div className="mb-14">
-          <p className="accent-label mb-2">certifications</p>
-          <h2 className="section-title">Credentials</h2>
+          <span className="meta-label mb-2 block">Verified Credentials</span>
+          <h2 className="section-title">Certifications</h2>
         </div>
 
         {/* Certs grid */}
@@ -15,8 +15,11 @@ export default function Certifications() {
           {certifications.map((cert, i) => (
             <div
               key={i}
-              className="border border-[var(--color-border-light)] p-5 flex items-start gap-4 card-hover bg-[var(--color-cream)] group"
+              className="border border-[var(--color-border-light)] p-5 flex items-start gap-4 bg-[var(--color-cream)] group relative overflow-hidden transition-all duration-300 hover:border-[var(--color-accent)]/40 hover:bg-[var(--color-cream-light)]"
             >
+              {/* Micro technical guidelines */}
+              <div className="absolute top-2 right-2 w-1.5 h-1.5 border-t border-r border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] transition-colors select-none pointer-events-none" />
+              <div className="absolute bottom-2 right-2 w-1.5 h-1.5 border-b border-r border-[var(--color-border-light)] group-hover:border-[var(--color-accent)] transition-colors select-none pointer-events-none" />
               {/* Icon */}
               <div className="shrink-0 w-10 h-10 border border-[var(--color-accent)] flex items-center justify-center group-hover:bg-[var(--color-accent)] transition-all duration-300">
                 <svg
@@ -43,7 +46,7 @@ export default function Certifications() {
                     rel="noopener noreferrer"
                     className="inline-block mt-3 font-heading text-[10px] tracking-[0.12em] uppercase text-[var(--color-accent)] hover:text-[var(--color-accent-dark)] transition-colors"
                   >
-                    show credential
+                    show credential ↗
                   </a>
                 )}
               </div>

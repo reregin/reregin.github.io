@@ -8,11 +8,11 @@ export default function Experience() {
   const visibleExperiences = showAll ? experiences : experiences.slice(0, 3);
 
   return (
-    <section id="experience" className="relative bg-[var(--color-cream-light)]">
+    <section id="experience" className="relative bg-[var(--color-cream-light)] dot-grid-bg">
       <div className="section-container">
         {/* Section header */}
         <div className="mb-14">
-          <p className="accent-label mb-2">experiences</p>
+          <span className="meta-label mb-2 block">Operational Log</span>
           <h2 className="section-title">Where I&apos;ve Worked</h2>
         </div>
 
@@ -24,11 +24,19 @@ export default function Experience() {
           <div className="space-y-10">
             {visibleExperiences.map((exp, i) => (
               <div key={i} className="relative pl-12 md:pl-20 group">
-                {/* Timeline dot */}
-                <div className="absolute left-[11px] md:left-[27px] top-2 w-[10px] h-[10px] rounded-full border-2 border-[var(--color-accent)] bg-[var(--color-cream-light)] group-hover:bg-[var(--color-accent)] transition-colors duration-300 z-10" />
+                {/* Timeline dot — square block instead of circle */}
+                <div className="absolute left-[9px] md:left-[25px] top-2 w-[12px] h-[12px] border-2 border-[var(--color-accent)] bg-[var(--color-cream-light)] group-hover:bg-[var(--color-accent)] transition-colors duration-300 z-10" />
 
                 {/* Card */}
-                <div className="border border-[var(--color-border-light)] bg-[var(--color-cream)] p-6 md:p-8 card-hover">
+                <div className="border border-[var(--color-border-light)] bg-[var(--color-cream)] p-6 md:p-8 relative overflow-hidden transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:shadow-[0_8px_20px_rgba(26,26,26,0.04)] group/card">
+                  {/* Left vertical slider guideline on hover */}
+                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[var(--color-accent)] scale-y-0 group-hover/card:scale-y-100 transition-transform duration-300 origin-top select-none pointer-events-none" />
+
+                  {/* Index number */}
+                  <span className="absolute top-4 right-4 font-heading text-[10px] tracking-[0.14em] text-[var(--color-border-light)] group-hover/card:text-[var(--color-accent)] font-bold transition-colors duration-300">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
                   {/* Period */}
                   <span className="font-heading text-[10px] tracking-[0.15em] uppercase text-[var(--color-gray)] block mb-2">
                     {exp.period}
@@ -69,7 +77,7 @@ export default function Experience() {
             <button
               type="button"
               onClick={() => setShowAll((current) => !current)}
-              className="font-heading text-xs font-bold tracking-[0.12em] uppercase px-7 py-3 border-2 border-[var(--color-black)] text-[var(--color-black)] hover:bg-[var(--color-black)] hover:text-[var(--color-cream)] transition-all duration-300"
+              className="font-heading text-[10px] font-bold tracking-[0.12em] uppercase px-7 py-3 border-2 border-[var(--color-black)] text-[var(--color-black)] hover:bg-[var(--color-black)] hover:text-[var(--color-cream)] transition-all duration-300"
               aria-expanded={showAll}
             >
               {showAll ? "Show Less" : "See More"}

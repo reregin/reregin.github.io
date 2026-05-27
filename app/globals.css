@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-/* ─── Custom Font: Amsterdam One alternative (Dancing Script for handwritten accent) ─── */
-
 /* ─── Design Tokens ─── */
 :root {
   --color-cream: #f5f0e8;
@@ -9,14 +7,16 @@
   --color-cream-dark: #ebe5d9;
   --color-black: #1a1a1a;
   --color-black-soft: #2d2d2d;
-  --color-accent: #e05a5a;
+  --color-accent: #E8573F;
   --color-accent-dark: #c94444;
   --color-accent-light: #f07070;
   --color-gray: #8a8a8a;
   --color-gray-light: #b5b5b5;
   --color-border: #1a1a1a;
   --color-border-light: rgba(26, 26, 26, 0.15);
+  --color-redact: #1a1a1a;
 
+  --font-display: "Space Grotesk", "Space Mono", "Courier New", monospace;
   --font-heading: "Space Mono", "Courier New", monospace;
   --font-accent: "Dancing Script", "Segoe Script", cursive;
   --font-body: "Manrope", "Avenir Next", "Helvetica Neue", Aptos, "Segoe UI",
@@ -37,6 +37,7 @@
   --color-gray-light: var(--color-gray-light);
   --color-border: var(--color-border);
   --color-border-light: var(--color-border-light);
+  --font-display: var(--font-display);
   --font-heading: var(--font-heading);
   --font-accent: var(--font-accent);
   --font-body: var(--font-body);
@@ -81,6 +82,10 @@ body {
 }
 
 /* ─── Typography Helpers ─── */
+.font-display {
+  font-family: var(--font-display);
+}
+
 .font-heading {
   font-family: var(--font-heading);
 }
@@ -93,19 +98,25 @@ body {
   font-family: var(--font-body);
 }
 
-/* ─── Handwritten Accent Label ─── */
-.accent-label {
+/* ─── Meta Label (using cursive welcome accent font for all section labels) ─── */
+.meta-label {
   font-family: var(--font-accent);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: lowercase;
   color: var(--color-accent);
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
-@media (min-width: 768px) {
-  .accent-label {
-    font-size: 2rem;
-  }
+/* ─── Legacy accent-label for any remaining uses ─── */
+.accent-label {
+  font-family: var(--font-heading);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
 /* ─── Section Title ─── */
@@ -125,6 +136,34 @@ body {
   }
 }
 
+/* ─── Signal Tag ─── */
+.signal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-black-soft);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.signal-tag--active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.signal-tag--filled {
+  background: var(--color-black);
+  border-color: var(--color-black);
+  color: var(--color-cream);
+}
+
 /* ─── Decorative Elements ─── */
 .decorative-dot {
   width: 8px;
@@ -138,6 +177,138 @@ body {
   width: 60px;
   height: 2px;
   background-color: var(--color-black);
+}
+
+/* ─── Noise Background ─── */
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ─── Grid Overlay ─── */
+.grid-overlay {
+  position: relative;
+}
+
+.grid-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+  background-image: linear-gradient(rgba(26, 26, 26, 1) 1px,
+      transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 26, 1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── Redaction Bar ─── */
+.redact-bar {
+  display: block;
+  background: var(--color-redact);
+  height: 0.75rem;
+  width: 100%;
+}
+
+.redact-bar--thin {
+  height: 3px;
+}
+
+.redact-bar--accent {
+  background: var(--color-accent);
+}
+
+/* ─── Project Grid ─── */
+.project-grid {
+  background-image: linear-gradient(rgba(26, 26, 26, 0.08) 1px,
+      transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 26, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* ─── Pipeline Node (for Skills architecture & Project pipelines) ─── */
+.pipeline-node {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  padding: 1rem 1.25rem;
+  background: var(--color-cream);
+  position: relative;
+  min-width: 0;
+  transition: border-color 0.2s ease;
+}
+
+.pipeline-node:hover {
+  border-color: var(--color-accent);
+}
+
+.pipeline-node__header {
+  font-family: var(--font-heading);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pipeline-node__index {
+  font-family: var(--font-heading);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  color: var(--color-gray);
+}
+
+.pipeline-node__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.pipeline-node__item {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--color-border-light);
+  color: var(--color-black-soft);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.pipeline-node__item:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ─── Pipeline Connector Arrow ─── */
+.pipeline-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-light);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  padding: 0 0.25rem;
+  flex-shrink: 0;
+}
+
+.pipeline-connector--vertical {
+  padding: 0.25rem 0;
+  transform: rotate(90deg);
 }
 
 /* ─── Card hover animation ─── */
@@ -157,6 +328,7 @@ body {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -169,12 +341,46 @@ body {
 }
 
 /* ─── Stagger delays ─── */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* ─── Blink animation for live indicators ─── */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.animate-blink {
+  animation: blink 2s ease-in-out infinite;
+}
 
 /* ─── Scrollbar Styling ─── */
 ::-webkit-scrollbar {
@@ -194,34 +400,162 @@ body {
   background: var(--color-gray);
 }
 
+/* ─── Signal Marquee ─── */
 @keyframes marquee {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
 }
 
 .signal-marquee {
-  animation: marquee 24s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 .signal-marquee:hover {
   animation-play-state: paused;
 }
 
-.project-grid {
-  background-image: linear-gradient(
-      rgba(26, 26, 26, 0.08) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(26, 26, 26, 0.08) 1px, transparent 1px);
-  background-size: 18px 18px;
-}
-
+/* ─── Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
   .signal-marquee {
     animation: none;
   }
+
+  .animate-blink {
+    animation: none;
+  }
+
+  .animate-fade-in-up {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ─── Dotted Matrix Background ─── */
+.dot-grid-bg {
+  position: relative;
+}
+
+.dot-grid-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(var(--color-black) 1px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+.dot-grid-bg-dark {
+  position: relative;
+}
+
+.dot-grid-bg-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(var(--color-cream) 1px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+/* ─── Swipe Fill Button Hover ─── */
+.tech-button-fill {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, color 0.3s ease;
+  z-index: 1;
+}
+
+.tech-button-fill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+
+.tech-button-fill:hover::before {
+  transform: translateX(100%);
+}
+
+.tech-button-fill:hover {
+  color: var(--color-cream) !important;
+  border-color: var(--color-black) !important;
+}
+
+.tech-button-accent {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, color 0.3s ease;
+  z-index: 1;
+}
+
+.tech-button-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-accent);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+
+.tech-button-accent:hover::before {
+  transform: translateX(100%);
+}
+
+.tech-button-accent:hover {
+  color: white !important;
+  border-color: var(--color-accent) !important;
+}
+
+/* ─── High-Tech Scanner Hover Sweep ─── */
+@keyframes laser-sweep {
+  0% {
+    left: -5%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  85% {
+    opacity: 0.8;
+  }
+
+  100% {
+    left: 105%;
+    opacity: 0;
+  }
+}
+
+.laser-scan-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent), 0 0 12px var(--color-accent);
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.group:hover .laser-scan-line {
+  animation: laser-sweep 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
