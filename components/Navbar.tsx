@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { navItems } from "@/lib/data";
+import ButterPopup from "@/components/ButterPopup";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [butterOpen, setButterOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -42,6 +44,14 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li>
+            <button
+              onClick={() => setButterOpen(true)}
+              className="font-heading text-[11px] font-bold tracking-[0.15em] uppercase text-[var(--color-accent)] hover:text-[var(--color-black)] transition-colors duration-200"
+            >
+              Squishy
+            </button>
+          </li>
         </ul>
 
         {/* Mobile Toggle */}
@@ -83,8 +93,20 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li>
+            <button
+              onClick={() => {
+                setMobileOpen(false);
+                setButterOpen(true);
+              }}
+              className="font-heading text-xs font-bold tracking-[0.15em] uppercase text-[var(--color-accent)] hover:text-[var(--color-black)] transition-colors"
+            >
+              Squishy
+            </button>
+          </li>
         </ul>
       </div>
+      <ButterPopup open={butterOpen} onClose={() => setButterOpen(false)} />
     </nav>
   );
 }

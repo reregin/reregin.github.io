@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
-import { personalInfo, profileBadges } from "@/lib/data";
+import { personalInfo } from "@/lib/data";
 
 /* ─── 3D Particle Type ─── */
 interface Bit {
@@ -50,7 +50,7 @@ export default function Hero() {
   const timeRef = useRef<number>(0);
 
   /* ─── Build the 3D grid ─── */
-  const buildBits = useCallback((w: number, h: number) => {
+  const buildBits = useCallback((w: number) => {
     const bits: Bit[] = [];
 
     // Columns (X-axis) and Rows (Z-axis, representing depth) - ultra-high-definition pinpoint grid
@@ -135,7 +135,7 @@ export default function Hero() {
       canvas.style.width = `${rect.width}px`;
       canvas.style.height = `${rect.height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      buildBits(rect.width, rect.height);
+      buildBits(rect.width);
     };
     resize();
     window.addEventListener("resize", resize);
@@ -272,7 +272,6 @@ export default function Hero() {
         waveY += Math.cos(b.bz * 0.011 + t * 1.1) * (b.amp * 0.15);
 
         // Hover Displacement: pull up towards cursor in 3D
-        let isHovered = false;
         let hoverForce = 0;
 
         if (mouse && b.screenX > 0 && b.screenY > 0) {
@@ -281,7 +280,6 @@ export default function Hero() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < hoverRadius) {
-            isHovered = true;
             hoverForce = 1 - dist / hoverRadius;
             // Pull upward (negative coordinate is upward in our world space)
             const displacement = -hoverForce * hoverForce * 75;
@@ -434,22 +432,9 @@ export default function Hero() {
         </p>
 
         {/* Tagline */}
-        <p className="font-body text-xs sm:text-sm text-[var(--color-gray)] mb-10 max-w-lg mx-auto leading-relaxed animate-fade-in-up delay-300">
-          turning raw data into intelligent systems and shipping on-chain
-          products that actually matter.
+        <p className="font-body text-xs sm:text-sm text-[var(--color-gray)] mb-10 max-w-lg md:max-w-none mx-auto leading-relaxed animate-fade-in-up delay-300 md:whitespace-nowrap">
+          turning raw data into intelligent systems and shipping on-chain products that actually matter.
         </p>
-
-        {/* Badge tags */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-2xl animate-fade-in-up delay-400">
-          {profileBadges.map((badge, idx) => (
-            <span
-              key={idx}
-              className="signal-tag text-[8px] tracking-[0.12em]"
-            >
-              {badge}
-            </span>
-          ))}
-        </div>
 
         {/* CTAs with delicate thin 1px borders */}
         <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up delay-500">

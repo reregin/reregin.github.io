@@ -52,11 +52,19 @@ const anthropometricMiningImages = [
   },
 ];
 
+const linowImages = [
+  {
+    src: "https://res.cloudinary.com/dvofzfezh/image/upload/v1782464016/Screenshot_2026-06-26_165011_vtg5yp.png",
+    alt: "Linow audit platform dashboard and verification flow",
+  },
+];
+
 const projectImageMap: Record<string, { src: string; alt: string }[]> = {
   NEUROKIT: neurokitImages,
   "FISH FRESHNESS CLASSIFICATION": fishFreshnessImages,
   "ANTHROPOMETRIC MINING": anthropometricMiningImages,
   CORA: coraLandscapeImages,
+  LINOW: linowImages,
 };
 
 const fallbackImage = {
@@ -169,6 +177,9 @@ function ExpandedLandscapeStack({
 }
 
 function getProjectMediaMeta(project: Project) {
+  if (project.title === "LINOW") {
+    return { badge: "SUI / WALRUS", label: "linow screens" };
+  }
   if (project.title === "CORA") {
     return { badge: "SOLANA", label: "cora screens" };
   }
@@ -712,6 +723,16 @@ export default function Projects() {
                       className="font-heading text-[10px] tracking-[0.12em] uppercase px-4 py-2 bg-[var(--color-black)] text-[var(--color-cream)] hover:bg-[var(--color-accent)] transition-colors"
                     >
                       Colosseum ↗
+                    </a>
+                  )}
+                  {selectedProject.deepsurgeUrl && (
+                    <a
+                      href={selectedProject.deepsurgeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-heading text-[10px] tracking-[0.12em] uppercase px-4 py-2 bg-[var(--color-black)] text-[var(--color-cream)] hover:bg-[var(--color-accent)] transition-colors"
+                    >
+                      DeepSurge ↗
                     </a>
                   )}
                   {selectedProject.instagramUrl && (

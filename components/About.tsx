@@ -42,14 +42,16 @@ export default function About() {
               </span>
             </div>
 
-            {aboutText.map((paragraph, i) => (
-              <p
-                key={i}
-                className="font-body text-base md:text-lg leading-relaxed text-[var(--color-black-soft)]"
-              >
-                {paragraph}
-              </p>
-            ))}
+            <div className="space-y-4">
+              {aboutText.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="font-body text-base md:text-lg leading-relaxed text-[var(--color-black-soft)]"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[var(--color-border-light)] border border-[var(--color-border-light)]">
               {profileBadges.map((badge, i) => (

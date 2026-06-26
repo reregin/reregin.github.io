@@ -1,6 +1,6 @@
 # Hi, I'm Regina Maria Samantha George 👋
 
-**Informatics Engineering Student | Machine Learning Engineer | Data Mining & Data Enthusiast**
+**Bachelor of Computer Science Fresh Graduate | Machine Learning Engineer | Data Mining & Data Enthusiast**
 
 📍 North Sulawesi, Indonesia  
 📧 reginageo22@gmail.com  
@@ -10,11 +10,11 @@
 
 ## About Me
 
-I'm a final-year Informatics Engineering student with a strong passion for the IT industry, especially in **Data Mining**, **Machine Learning**, and **Databases**.
+I am an AI/ML Engineer and recent Computer Science graduate with a strong foundation in Database and Software Engineering. During my university years, I focused on building and shipping architectures under pressure. This practical experience earned me a Bronze Medal at PIMNAS and a Finalist spot at Gemastik.
 
-I have gained experience through various projects, competitions, internships, and community-based technology initiatives. My strong problem-solving skills and detail-oriented approach drive my commitment to applying knowledge and energy to meaningful causes while continuously growing my technical and professional skills.
+My engineering work focuses on the intersection of data and software. I take models from research environments and integrate them into functional systems.
 
-Beyond technology, I also enjoy **filmmaking** and **editing**, allowing me to combine creativity with technical thinking.
+Beyond technology, I am an avid filmmaker and video editor. I enjoy the process of taking raw footage or data and structuring it into a polished final product.
 
 ---
 
@@ -119,6 +119,12 @@ Beyond technology, I also enjoy **filmmaking** and **editing**, allowing me to c
 ---
 
 ## Projects & Highlights
+
+### LINOW — Verifiable AI Audit Agent
+
+- Developed an AI audit agent with a tamper-proof evidence layer built on Sui and Walrus.
+- Integrated Walrus private storage protocol to secure sensitive context and data.
+- Built a Next.js frontend and integrated advanced contextual-retrieval and reranking layers for higher token efficiency and accuracy.
 
 ### GEMASTIK 2024 — Data Mining
 

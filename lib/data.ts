@@ -16,6 +16,7 @@ export interface Project {
   xUrl?: string;
   vercelUrl?: string;
   colosseumUrl?: string;
+  deepsurgeUrl?: string;
   description: string;
   tags: string[];
   featured?: boolean;
@@ -57,7 +58,7 @@ export interface Education {
 export const personalInfo = {
   name: "Regina Maria Samantha George",
   title: "ML engineer & web3 builder",
-  subtitle: "Informatics Engineering Student",
+  subtitle: "Bachelor of Computer Science Fresh Graduate",
   email: "reginageo22@gmail.com",
   linkedin: "www.linkedin.com/in/regina-george",
   linkedinUrl: "https://www.linkedin.com/in/regina-george",
@@ -93,9 +94,9 @@ export const builderNotes = [
 ];
 
 export const aboutText = [
-  "I'm a final-year Informatics Engineering student with a strong passion for the IT industry, especially in Data Mining, Machine Learning, and Databases.",
-  "I have gained experience through various projects, competitions, internships, and community-based technology initiatives. My strong problem-solving skills and detail-oriented approach drive my commitment to applying knowledge and energy to meaningful causes while continuously growing my technical and professional skills.",
-  "Beyond technology, I also enjoy filmmaking and editing, allowing me to combine creativity with technical thinking.",
+  "I am an AI/ML Engineer and recent Computer Science graduate with a strong foundation in Database and Software Engineering. During my university years, I focused on building and shipping architectures under pressure. This practical experience earned me a Bronze Medal at PIMNAS and a Finalist spot at Gemastik.",
+  "My engineering work focuses on the intersection of data and software. I take models from research environments and integrate them into functional systems.",
+  "Beyond technology, I am an avid filmmaker and video editor. I enjoy the process of taking raw footage or data and structuring it into a polished final product.",
 ];
 
 export const experiences: Experience[] = [
@@ -210,6 +211,19 @@ export const projects: Project[] = [
     featured: true,
     placeholderLayout: "landscape-double",
   },
+  {
+    title: "LINOW",
+    subtitle: "AI Audit Agent with Verifiable Memory",
+    period: "May 2026 - Present",
+    githubUrl: "https://github.com/linowlabs/linow",
+    xUrl: "https://x.com/linow_ai",
+    vercelUrl: "https://linow.vercel.app/",
+    deepsurgeUrl: "https://www.deepsurge.xyz/projects/b89834d0-4c8f-481b-8bf5-0308e3e1ad8f",
+    description:
+      "Linow is an AI audit agent that helps companies compliance prepare audit evidence quickly and helps auditors review engagements efficiently. The Sui are our tamper proof layer, more verifiable audit. Linow leverages Walrus portable memory for keeping the agent's context private even for sensitive company data and combines with contextual-retrieval and reranking mechanism layers to enhance our accurate agent, decrease failure rate and token efficiency. Linow AI made audit more verifiably, quickly, and automated.",
+    tags: ["AI/ML", "Sui", "Walrus", "Next.js", "Web3", "Auditing"],
+    featured: true,
+  },
 ];
 
 export const skillCategories: SkillCategory[] = [
@@ -219,7 +233,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     category: "Web3 & Web2",
-    skills: ["Next.js", "TypeScript", "Tailwind CSS", "Solana", "NestJS", "Flutter"],
+    skills: ["Next.js", "TypeScript", "Tailwind CSS", "Sui", "Solana", "NestJS", "Flutter"],
   },
   {
     category: "Language",

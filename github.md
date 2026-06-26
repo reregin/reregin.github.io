@@ -26,11 +26,11 @@
 
 ### <a id="about"></a>about
 
-final-year Informatics Engineering student with a strong interest in data, machine learning, and meaningful technology.
+I am an AI/ML Engineer and recent Computer Science graduate with a strong foundation in Database and Software Engineering. During my university years, I focused on building and shipping architectures under pressure. This practical experience earned me a Bronze Medal at PIMNAS and a Finalist spot at Gemastik.
 
-my favorite English word is **determination**. I feel like it is the root of every success, and of every wonderful story people tell.
+My engineering work focuses on the intersection of data and software. I take models from research environments and integrate them into functional systems.
 
-I believe everyone has a strength within them that is still waiting to awaken, and sometimes it starts when we say **yes** to something we do not yet realize will change our life.
+Beyond technology, I am an avid filmmaker and video editor. I enjoy the process of taking raw footage or data and structuring it into a polished final product.
 
 ---
 
@@ -46,6 +46,7 @@ I believe everyone has a strength within them that is still waiting to awaken, a
 
 | | |
 |---|---|
+| **LINOW** - AI audit agent with verifiable memory on Sui & Walrus [↗](https://github.com/linowlabs/linow) | `May 2026 - Present` |
 | **NEUROKIT** - multimodal neurotherapeutic toolkit integrated with gamification and generative AI [↗](https://github.com/reregin/neurokit) | `Jul 2025 - Nov 2025` |
 
 ---
@@ -65,6 +66,7 @@ I believe everyone has a strength within them that is still waiting to awaken, a
 ![Next.js](https://img.shields.io/badge/Next.js-ffcad4?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-b8c0ff?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-bde0fe?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Sui](https://img.shields.io/badge/Sui-4CA2FF?style=for-the-badge&logo=sui&logoColor=white)
 ![Solana](https://img.shields.io/badge/Solana-cdb4db?style=for-the-badge&logo=solana&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-ffb3c6?style=for-the-badge&logo=nestjs&logoColor=white)
 
